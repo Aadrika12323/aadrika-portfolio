@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aadrika Srivastava — AI/ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg:#0a0a0f;--surface:#111118;--card:#16161f;--border:#2a2a3a;
+    --accent:#7c6af7;--accent2:#4fd1c5;--accent3:#f6ad55;--accent4:#f687b3;
+    --text:#e8e8f0;--muted:#8888a8;--white:#ffffff;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Mono',monospace;background:var(--bg);color:var(--text);overflow-x:hidden;cursor:none;}
+  .cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transition:transform .15s ease,background .2s;transform:translate(-50%,-50%);}
+  .cursor-ring{width:36px;height:36px;border:1.5px solid var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transition:all .12s ease;transform:translate(-50%,-50%);opacity:.5;}
+  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.35;}
+  nav{position:fixed;top:0;left:0;right:0;padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;z-index:100;border-bottom:1px solid transparent;transition:all .3s;backdrop-filter:blur(0px);}
+  nav.scrolled{background:rgba(10,10,15,.85);border-bottom-color:var(--border);backdrop-filter:blur(12px);}
+  .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--white);letter-spacing:-.02em;}
+  .nav-logo span{color:var(--accent);}
+  .nav-links{display:flex;gap:2rem;list-style:none;}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;transition:color .2s;}
+  .nav-links a:hover{color:var(--accent);}
+  .hero{min-height:100vh;display:flex;align-items:center;padding:6rem 3rem 3rem;position:relative;overflow:hidden;}
+  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(124,106,247,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(124,106,247,.04) 1px,transparent 1px);background-size:60px 60px;}
+  .hero-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(124,106,247,.12) 0%,transparent 70%);top:-100px;left:-100px;pointer-events:none;}
+  .hero-glow2{position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(79,209,197,.08) 0%,transparent 70%);bottom:0;right:10%;pointer-events:none;}
+  .hero-content{position:relative;z-index:2;max-width:800px;}
+  .hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(124,106,247,.1);border:1px solid rgba(124,106,247,.3);padding:.35rem .9rem;border-radius:100px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;animation:fadeUp .6s ease both;}
+  .hero-tag::before{content:'';width:6px;height:6px;background:var(--accent2);border-radius:50%;animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+  .hero h1{font-family:'Syne',sans-serif;font-size:clamp(3rem,8vw,6.5rem);font-weight:800;line-height:.95;letter-spacing:-.03em;color:var(--white);animation:fadeUp .6s .1s ease both;}
+  .hero h1 .accent{color:var(--accent);}
+  .hero h1 .line2{display:block;color:var(--muted);font-size:.55em;font-weight:600;margin-top:.3em;letter-spacing:-.01em;}
+  .hero-desc{margin-top:1.5rem;font-size:.9rem;line-height:1.8;color:var(--muted);max-width:520px;animation:fadeUp .6s .2s ease both;}
+  .hero-cta{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .6s .3s ease both;}
+  .btn{padding:.75rem 1.8rem;font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:all .2s;cursor:none;}
+  .btn-primary{background:var(--accent);color:var(--white);border:1px solid var(--accent);}
+  .btn-primary:hover{background:#6a59e0;transform:translateY(-2px);box-shadow:0 8px 24px rgba(124,106,247,.3);}
+  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+  .hero-stats{margin-top:3.5rem;display:flex;gap:3rem;animation:fadeUp .6s .4s ease both;}
+  .stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--white);line-height:1;}
+  .stat-num span{color:var(--accent);}
+  .stat-label{font-size:.65rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:.3rem;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  section{padding:6rem 3rem;}
+  .section-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;display:flex;align-items:center;gap:.75rem;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);max-width:60px;}
+  .section-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-.02em;color:var(--white);margin-bottom:3rem;}
+  .skills-section{background:var(--surface);}
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;}
+  .skill-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:all .25s;position:relative;overflow:hidden;}
+  .skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .3s;}
+  .skill-card:hover{border-color:rgba(124,106,247,.4);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.3);}
+  .skill-card:hover::before{transform:scaleX(1);}
+  .skill-cat{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;}
+  .skill-list{display:flex;flex-wrap:wrap;gap:.4rem;}
+  .skill-tag{font-size:.7rem;padding:.25rem .6rem;background:rgba(124,106,247,.08);border:1px solid rgba(124,106,247,.15);border-radius:4px;color:var(--text);}
+
+  /* FILTER TABS */
+  .filter-tabs{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+  .filter-btn{padding:.4rem 1rem;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;background:transparent;border:1px solid var(--border);border-radius:100px;color:var(--muted);cursor:none;transition:all .2s;}
+  .filter-btn.active,.filter-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(124,106,247,.08);}
+
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;}
+  .project-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all .25s;position:relative;overflow:hidden;display:flex;flex-direction:column;}
+  .project-card.hidden{display:none;}
+  .project-card:hover{border-color:rgba(124,106,247,.4);transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,.4);}
+  .project-num{font-family:'Syne',sans-serif;font-size:3.5rem;font-weight:800;color:rgba(124,106,247,.08);position:absolute;top:1rem;right:1.5rem;line-height:1;}
+  .project-badge{display:inline-block;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:100px;margin-bottom:1rem;}
+  .badge-genai{background:rgba(124,106,247,.15);color:var(--accent);border:1px solid rgba(124,106,247,.3);}
+  .badge-nlp{background:rgba(79,209,197,.12);color:var(--accent2);border:1px solid rgba(79,209,197,.3);}
+  .badge-ml{background:rgba(246,173,85,.12);color:var(--accent3);border:1px solid rgba(246,173,85,.3);}
+  .badge-data{background:rgba(246,173,85,.12);color:var(--accent3);border:1px solid rgba(246,173,85,.3);}
+  .badge-fullstack{background:rgba(246,135,179,.12);color:var(--accent4);border:1px solid rgba(246,135,179,.3);}
+  .project-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.75rem;letter-spacing:-.01em;}
+  .project-desc{font-size:.76rem;line-height:1.75;color:var(--muted);flex:1;margin-bottom:1.5rem;}
+  .project-tech{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem;}
+  .tech-pill{font-size:.65rem;padding:.2rem .55rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;color:var(--muted);}
+  .project-links{display:flex;gap:.75rem;}
+  .proj-link{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:gap .2s;}
+  .proj-link:hover{gap:.7rem;}
+
+  .exp-section{background:var(--surface);}
+  .exp-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem;display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start;max-width:700px;}
+  .exp-dot{width:44px;height:44px;background:rgba(124,106,247,.1);border:1px solid rgba(124,106,247,.3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+  .exp-role{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--white);}
+  .exp-org{font-size:.75rem;color:var(--accent);margin:.2rem 0;}
+  .exp-date{font-size:.65rem;color:var(--muted);letter-spacing:.08em;margin-bottom:.75rem;}
+  .exp-points{list-style:none;}
+  .exp-points li{font-size:.78rem;line-height:1.7;color:var(--muted);padding-left:1rem;position:relative;margin-bottom:.35rem;}
+  .exp-points li::before{content:'→';position:absolute;left:0;color:var(--accent);}
+  .contact-section{text-align:center;}
+  .contact-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:4rem;max-width:600px;margin:0 auto;position:relative;overflow:hidden;}
+  .contact-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(124,106,247,.08) 0%,transparent 60%);pointer-events:none;}
+  .contact-email{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--accent);margin:1.5rem 0;word-break:break-all;}
+  .social-links{display:flex;justify-content:center;gap:1rem;margin-top:1.5rem;}
+  .social-link{padding:.6rem 1.2rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--muted);text-decoration:none;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;transition:all .2s;cursor:none;}
+  .social-link:hover{border-color:var(--accent);color:var(--accent);}
+  footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:.65rem;color:var(--muted);letter-spacing:.08em;}
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav id="navbar">
+  <div class="nav-logo">A<span>.</span>Srivastava</div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Available for internships</div>
+    <h1>Aadrika<br/><span class="accent">Srivastava</span><span class="line2">AI/ML · Data Science · Full Stack</span></h1>
+    <p class="hero-desc">B.Tech CSE (AI) student at Parul University building real-world AI systems — NLP pipelines, LLM integrations, REST APIs, Power BI dashboards, and deployed full-stack applications. 8+ projects on GitHub.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="mailto:aadrikasrivastava2006@gmail.com" class="btn btn-ghost">Get In Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">8<span>+</span></div><div class="stat-label">Projects</div></div>
+      <div><div class="stat-num">8<span>.02</span></div><div class="stat-label">CGPA</div></div>
+      <div><div class="stat-num">2<span>027</span></div><div class="stat-label">Graduating</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-section" id="skills">
+  <div class="section-label reveal">Skills</div>
+  <h2 class="section-title reveal">Technical Stack</h2>
+  <div class="skills-grid">
+    <div class="skill-card reveal"><div class="skill-cat">Languages</div><div class="skill-list"><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">SQL</span><span class="skill-tag">Java</span><span class="skill-tag">C++</span></div></div>
+    <div class="skill-card reveal"><div class="skill-cat">ML & NLP</div><div class="skill-list"><span class="skill-tag">Scikit-learn</span><span class="skill-tag">TF-IDF</span><span class="skill-tag">Transformers</span><span class="skill-tag">BART</span><span class="skill-tag">DistilBERT</span><span class="skill-tag">Whisper</span><span class="skill-tag">TextBlob</span><span class="skill-tag">VADER</span></div></div>
+    <div class="skill-card reveal"><div class="skill-cat">GenAI & LLMs</div><div class="skill-list"><span class="skill-tag">Prompt Engineering</span><span class="skill-tag">LLM Summarisation</span><span class="skill-tag">RAG Pipelines</span></div></div>
+    <div class="skill-card reveal"><div class="skill-cat">Data & Analytics</div><div class="skill-list"><span class="skill-tag">Power BI</span><span class="skill-tag">DAX</span><span class="skill-tag">Power Query</span><span class="skill-tag">Star Schema</span><span class="skill-tag">MySQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Matplotlib</span></div></div>
+    <div class="skill-card reveal"><div class="skill-cat">Backend & APIs</div><div class="skill-list"><span class="skill-tag">Flask</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Node.js</span><span class="skill-tag">Express.js</span><span class="skill-tag">REST APIs</span></div></div>
+    <div class="skill-card reveal"><div class="skill-cat">Frontend & Tools</div><div class="skill-list"><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Streamlit</span><span class="skill-tag">Git</span><span class="skill-tag">GitHub</span><span class="skill-tag">Postman</span><span class="skill-tag">Render</span></div></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-label reveal">Work</div>
+  <h2 class="section-title reveal">Featured Projects</h2>
+  <div class="filter-tabs reveal">
+    <button class="filter-btn active" onclick="filterProjects('all',this)">All</button>
+    <button class="filter-btn" onclick="filterProjects('ai',this)">AI / ML</button>
+    <button class="filter-btn" onclick="filterProjects('data',this)">Data & Analytics</button>
+    <button class="filter-btn" onclick="filterProjects('fullstack',this)">Full Stack</button>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card reveal" data-cat="ai">
+      <div class="project-num">01</div>
+      <span class="project-badge badge-genai">GenAI · NLP</span>
+      <div class="project-title">InteractGuard</div>
+      <p class="project-desc">AI-powered call quality monitoring system — Whisper ASR → NLP classification → LLM summarisation in a single automated pipeline. Real-time Streamlit dashboard with 100% QA coverage simulation.</p>
+      <div class="project-tech"><span class="tech-pill">Python</span><span class="tech-pill">Whisper</span><span class="tech-pill">DistilBERT</span><span class="tech-pill">BART</span><span class="tech-pill">Flask</span><span class="tech-pill">Streamlit</span></div>
+      <div class="project-links"><a href="https://github.com/Aadrika12323" class="proj-link">GitHub →</a></div>
+    </div>
+
+    <div class="project-card reveal" data-cat="ai">
+      <div class="project-num">02</div>
+      <span class="project-badge badge-nlp">AIOps · Live</span>
+      <div class="project-title">Sentinel-AIOps</div>
+      <p class="project-desc">Log-to-solution engine using TF-IDF similarity to map server logs to resolution commands. MySQL-backed pattern tracking. Live on Render.</p>
+      <div class="project-tech"><span class="tech-pill">Python</span><span class="tech-pill">Flask</span><span class="tech-pill">TF-IDF</span><span class="tech-pill">MySQL</span><span class="tech-pill">Postman</span><span class="tech-pill">Render</span></div>
+      <div class="project-links"><a href="https://sentinel-aiops.onrender.com" class="proj-link">Live →</a><a href="https://github.com/Aadrika12323" class="proj-link">GitHub →</a></div>
+    </div>
+
+    <div class="project-card reveal" data-cat="ai">
+      <div class="project-num">03</div>
+      <span class="project-badge badge-nlp">NLP · Sentiment</span>
+      <div class="project-title">Real-Time Sentiment Tracker</div>
+      <p class="project-desc">ML system to analyse sentiment from audio/video. Integrates Whisper for speech-to-text and TextBlob/VADER for sentiment scoring with time-based trend visualisation.</p>
+      <div class="project-tech"><span class="tech-pill">Python</span><span class="tech-pill">Whisper</span><span class="tech-pill">TextBlob</span><span class="tech-pill">VADER</span><span class="tech-pill">Matplotlib</span></div>
+      <div class="project-links"><a href="https://github.com/Aadrika12323/Meetat-AI" class="proj-link">GitHub →</a></div>
+    </div>
+
+    <div class="project-card reveal" data-cat="ai">
+      <div class="project-num">04</div>
+      <span class="project-badge badge-nlp">NLP · Matching</span>
+      <div class="project-title">AI Resume & Job Matcher</div>
+      <p class="project-desc">NLP pipeline using TF-IDF and cosine similarity to rank resumes against job descriptions. Served via Flask REST APIs with structured JSON responses.</p>
+      <div class="project-tech"><span class="tech-pill">Python</span><span class="tech-pill">TF-IDF</span><span class="tech-pill">Cosine Similarity</span><span class="tech-pill">Flask</span><span class="tech-pill">REST API</span></div>
+      <div class="project-links"><a href="https://github.com/Aadrika12323/AIPoweredResumeAnalyzer" class="proj-link">GitHub →</a></div>
+    </div>
+
+    <div class="project-card reveal" data-cat="ai">
+      <div class="project-num">05</div>
+      <span class="project-badge badge-ml">ML · Healthcare</span>
+      <div class="project-title">AI PCOS Risk Predictor</div>
+      <p class="project-desc">End-to-end ML classification for PCOS risk prediction from symptoms. Full pipeline from input collection to automated structured report generation.</p>
+      <div class="project-tech"><span class="tech-pill">Python</span><span class="tech-pill">Scikit-learn</span><span class="tech-pill">Flask</span><span class="tech-pill">ML Classification</span></div>
+      <div class="project-links"><a href="https://github.com/Aadrika12323" class="proj-link">GitHub →</a></div>
+    </div>
+
+    <div class="project-card reveal" data-cat="data">
+      <div class="project-num">06</div>
+      <span class="project-badge badge-data">Power BI · Analytics</span>
+      <div class="project-title">Retail Sales & Operations Dashboard</div>
+      <p class="project-desc">End-to-end Power BI dashboard tracking $2.3M revenue, 12.47% profit margin, delivery KPIs, and MoM growth across 4 regions using DAX, star schema modelling, and Power Query.</p>
+      <div class="project-tech"><span class="tech-pill">Power BI</span><span class="tech-pill">DAX</span><span class="tech-pill">Power Query</span><span class="tech-pill">Star Schema</span></div>
+      <div class="project-links"><a href="https://app.powerbi.com/links/QEUFGbZWvt" class="proj-link">Live →</a></div>
+    </div>
+
+    <div class="project-card reveal" data-cat="data">
+      <div class="project-num">07</div>
+      <span class="project-badge badge-data">SQL · Power BI</span>
+      <div class="project-title">Customer Behavior Analysis</div>
+      <p class="project-desc">End-to-end data analysis using MySQL and Power BI. KPIs including Total Revenue, Total Orders, and AOV. Identified top-performing products and derived actionable business insights.</p>
+      <div class="project-tech"><span class="tech-pill">MySQL</span><span class="tech-pill">Power BI</span><span class="tech-pill">SQL</span><span class="tech-pill">Data Analysis</span></div>
+      <div class="project-links"><a href="https://github.com/Aadrika12323/Customer-Behavior-Analysis" class="proj-link">GitHub →</a></div>
+    </div>
+
+    <div class="project-card reveal" data-cat="fullstack">
+      <div class="project-num">08</div>
+      <span class="project-badge badge-fullstack">MERN · Full Stack</span>
+      <div class="project-title">NoteNest</div>
+      <p class="project-desc">Full-stack notes management application built with the MERN stack — MongoDB, Express.js, React, and Node.js. Clean UI with backend REST API and persistent data storage.</p>
+      <div class="project-tech"><span class="tech-pill">MongoDB</span><span class="tech-pill">Express.js</span><span class="tech-pill">React</span><span class="tech-pill">Node.js</span><span class="tech-pill">REST API</span></div>
+      <div class="project-links"><a href="https://github.com/Aadrika12323/NOTENEST-MERN-project" class="proj-link">GitHub →</a></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="exp-section" id="experience">
+  <div class="section-label reveal">Experience</div>
+  <h2 class="section-title reveal">Work History</h2>
+  <div class="exp-card reveal">
+    <div class="exp-dot">🌱</div>
+    <div>
+      <div class="exp-role">AI for Sustainability Virtual Intern</div>
+      <div class="exp-org">1M1B — AICTE & IBM Collaboration</div>
+      <div class="exp-date">2026 · Remote</div>
+      <ul class="exp-points">
+        <li>Built predictive AI models and workflows on IBM cloud platforms aligned with UN SDGs</li>
+        <li>Delivered data-driven solutions and presented findings to program mentors</li>
+        <li>Collaborated in a cross-functional virtual team on shared AI deliverables</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-section">
+    <div class="section-label reveal" style="justify-content:center">Contact</div>
+    <h2 class="section-title reveal">Let's Work Together</h2>
+    <div class="contact-card reveal">
+      <p style="font-size:.8rem;color:var(--muted);line-height:1.7">Actively looking for internships in AI/ML, Data Science, GenAI, Full Stack, and Software Engineering. Open to remote roles across India.</p>
+      <div class="contact-email">aadrikasrivastava2006@gmail.com</div>
+      <p style="font-size:.75rem;color:var(--muted)">+91 7859802245 · Vadodara, Gujarat</p>
+      <div class="social-links">
+        <a href="https://linkedin.com/in/aadrika-srivastava-56316233b" class="social-link">LinkedIn</a>
+        <a href="https://github.com/Aadrika12323" class="social-link">GitHub</a>
+        <a href="mailto:aadrikasrivastava2006@gmail.com" class="social-link">Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Aadrika Srivastava</span>
+  <span>Built with HTML · CSS · JS</span>
+</footer>
+
+<script>
+  const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+  function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);}
+  animRing();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cursor.style.transform='translate(-50%,-50%) scale(2)';cursor.style.background='var(--accent2)';});
+    el.addEventListener('mouseleave',()=>{cursor.style.transform='translate(-50%,-50%) scale(1)';cursor.style.background='var(--accent)';});
+  });
+  window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
+  const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  function filterProjects(cat,btn){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.project-card').forEach(card=>{
+      if(cat==='all'||card.dataset.cat===cat){card.classList.remove('hidden');}
+      else{card.classList.add('hidden');}
+    });
+  }
+</script>
+</body>
+</html>
