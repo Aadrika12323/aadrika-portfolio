@@ -11,6 +11,10 @@
       <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
     </a>
     &nbsp;
+    <a href="https://leetcode.com/u/DShBhb7b0s/">
+      <img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black"/>
+    </a>
+    &nbsp;
     <a href="https://app.powerbi.com/links/QEUFGbZWvt">
       <img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black"/>
     </a>
@@ -30,6 +34,7 @@
 - 📍 Vadodara, Gujarat · Available for **remote roles across India**
 - 🏆 **IBM SkillsBuild AI Certified** — 1M1B × AICTE × IBM, 2026
 - 📊 **Finlatics Business Analyst Certified** — Fincrux Technologies LLP (DPIIT-recognised), 2025
+- 💻 **Active on LeetCode** — solving DSA problems consistently
 
 ---
 
@@ -52,7 +57,7 @@ Tools          →  Git · GitHub · Postman · Render · GitHub Actions · VS C
 ## 💼 Experience
 
 ### 📊 Business Analyst Intern — [Finlatics](https://finlatics.com) (Fincrux Technologies LLP)
-**Dec 2024 – Jan 2025 · Virtual · DPIIT-recognised Start-Up · Atal Incubation Centre – NMIMS · NITI Aayog**
+**Dec 2024 – Jan 2025 · Virtual · DPIIT-recognised · Atal Incubation Centre – NMIMS · NITI Aayog**
 > Credential ID: BA-884757a0de3d4ab7 · [Verify](https://finlatics.com/credentialscheck)
 
 - Applied **MECE framework** to case studies: enhancing profitability for a multinational tech firm and analysing feasibility of a proposed tourism project
@@ -120,7 +125,7 @@ Tools          →  Git · GitHub · Postman · Render · GitHub Actions · VS C
 ### 📊 [Retail Sales & Operations Dashboard](https://app.powerbi.com/links/QEUFGbZWvt) · 🟢 Live
 > Power BI · $2.3M Revenue tracked
 
-- $2.3M revenue · 12.47% profit margin · 4 regions · DAX + Star Schema modelling · 8 dynamic visuals
+- $2.3M revenue · 12.47% profit margin · 4 regions · DAX + Star Schema · 8 dynamic visuals
 
 `Power BI` `DAX` `Power Query` `Star Schema`
 
@@ -161,6 +166,10 @@ Tools          →  Git · GitHub · Postman · Render · GitHub Actions · VS C
   <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aadrika12323&layout=compact&theme=tokyonight&hide_border=true"/>
 </div>
 
+<div align="center">
+  <img src="https://leetcode-badge-sage.vercel.app/badge/DShBhb7b0s?theme=dark&bgColor=282828" alt="LeetCode Stats"/>
+</div>
+
 ---
 
 ## 📬 Let's Connect
@@ -168,6 +177,7 @@ Tools          →  Git · GitHub · Postman · Render · GitHub Actions · VS C
 - 📧 **aadrikasrivastava2006@gmail.com**
 - 📱 **+91 7859802245**
 - 💼 **[linkedin.com/in/aadrika-srivastava-56316233b](https://linkedin.com/in/aadrika-srivastava-56316233b)**
+- 💻 **[leetcode.com/u/DShBhb7b0s](https://leetcode.com/u/DShBhb7b0s/)**
 
 ---
 
